@@ -1,4 +1,6 @@
 import React from 'react';
+import Events from "./pages/Events";
+
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { useAuthStore } from './store/authStore';
 import AppLayout from './components/layout/AppLayout';
@@ -40,7 +42,8 @@ function App() {
                                 <Routes>
                                     <Route path="discover" element={<Discover />} />
                                     <Route path="festivals" element={<Festivals />} /> {/* <--- ADDED ROUTE */}
-                                    
+                                    <Route path="/events" element={<Events />} />
+
                                     <Route path="event/:id" element={<EventDetail />} />
                                     <Route path="chat/:eventId" element={<Chat />} />
                                     <Route path="moments" element={<Moments />} />
@@ -49,7 +52,7 @@ function App() {
                                     <Route path="notifications" element={<Notifications />} />
                                     <Route path="profile" element={<Profile />} />
                                     <Route path="create" element={<Create />} />
-                                    
+
                                     {/* Redirect Loop Fix: Use absolute path '/' */}
                                     <Route path="*" element={<Navigate to="/discover" replace />} />
                                 </Routes>
